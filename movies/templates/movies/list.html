@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<div id="app">
+  <div class="container">
+    <!-- Content -->
+    <div class="row">
+      <div class="col-2">
+        <div>
+          <ul class="nav flex-column">
+            <li class="nav-item mt-2">
+              <button class="btn btn-outline-success btn-block" v-on:click="getMovies()">전체 보기</button>
+            </li>
+          </ul>
+
+          <h6
+            class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>장르별 보기</span>
+          </h6>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item mt-2" v-for="genre in genres">
+              <button class="btn btn-outline-info btn-block"
+                @click="setGenre(genre.id)">${ genre.name }</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-10">
+        <section v-if="!isDetailPage">
+          <div class="row">
+            <div class="container">
+              <div class="row">
+                <div v-for="movie in nowMovies" class="col-4">
+                  <div class="card">
+                    <img class="card-img-top" v-bind:src="movie.poster_url">
+                    <div class="card-body">
+                      <h5 class="card-title">${ movie.title }</h5>
+                      <p class="card-text btn bg-info text-white">${ movie.score }</p>
+                      <p class="card-text">
+                        <small>누적 관객: ${ movie.audience }명</small>
+                      </p>
+                      <button v-on:click="setCurrentMovie(movie)" class="btn btn-primary">상세정보</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section v-if="isDetailPage">
+          <div class="row">
+            <div class="container">
+              <header class="row">
+                <h1 class="my-4 col-9">${ currentMovie.title }</h1>
+                <div class="col-3 m-auto">
+                  <button class="btn btn-danger" v-on:click="togglePage()">뒤로가기</button>
+                </div>
+              </header>
+              <p><span class="mr-2" v-for="genre in currentMovie.genres">${ genre.name }</span></p>
+              <div class="row">
+                <div class="col-md-4">
+                  <img class="img-fluid" v-bind:src="currentMovie.poster_url"
+                      v-bind:alt="currentMovie.title">
+                </div>
+
+                <div class="col-md-8">
+                  <h2 class="my-3">평점</h2>
+                  <p>${ averageScore }</p>
+                  <h3 class="my-3">리뷰</h3>
+                  {% if user.is_authenticated %}
+                  <label for="review">리뷰를 남겨주세요: </label>
+                  <div class="row">
+                    <input v-model="review.content" class="form-control col-6 mx-2" id="review"
+                        type="text">
+                    <select v-model="review.score" class="custom-select col-1 mr-2">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <button class="btn btn-primary"
+                        @click="postReview(currentMovie.id)">남기기</button>
+                  </div>
+                  {% endif %}
+                  <ul>
+                    <li class="comment" v-for="score in movieReviews">${ score.content } - ${ score.username }:
+                      <strong>${ score.score }</strong>
+                      <!--<button v-show="score.username === loginUser.username" class="btn btn-danger">삭제</button>-->
+                      <button @click="deleteReview(score.id)" class="trash"><i v-show="score.username === loginUser.username" class="fas fa-trash"></i></button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-8 ">
+                  <p>
+                    ${ currentMovie.description }
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="{% static 'app2.js' %}"></script>
+{% endblock %}

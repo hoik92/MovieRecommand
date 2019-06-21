@@ -1,0 +1,154 @@
+[
+	{
+		"pk": 1,
+		"model": "movies.genre",
+		"fields": {
+			"name": "액션",
+			"genreId": 28
+		}
+	},
+	{
+		"pk": 2,
+		"model": "movies.genre",
+		"fields": {
+			"name": "모험",
+			"genreId": 12
+		}
+	},
+	{
+		"pk": 3,
+		"model": "movies.genre",
+		"fields": {
+			"name": "애니메이션",
+			"genreId": 16
+		}
+	},
+	{
+		"pk": 4,
+		"model": "movies.genre",
+		"fields": {
+			"name": "코미디",
+			"genreId": 35
+		}
+	},
+	{
+		"pk": 5,
+		"model": "movies.genre",
+		"fields": {
+			"name": "범죄",
+			"genreId": 80
+		}
+	},
+	{
+		"pk": 6,
+		"model": "movies.genre",
+		"fields": {
+			"name": "다큐멘터리",
+			"genreId": 99
+		}
+	},
+	{
+		"pk": 7,
+		"model": "movies.genre",
+		"fields": {
+			"name": "드라마",
+			"genreId": 18
+		}
+	},
+	{
+		"pk": 8,
+		"model": "movies.genre",
+		"fields": {
+			"name": "가족",
+			"genreId": 10751
+		}
+	},
+	{
+		"pk": 9,
+		"model": "movies.genre",
+		"fields": {
+			"name": "판타지",
+			"genreId": 14
+		}
+	},
+	{
+		"pk": 10,
+		"model": "movies.genre",
+		"fields": {
+			"name": "역사",
+			"genreId": 36
+		}
+	},
+	{
+		"pk": 11,
+		"model": "movies.genre",
+		"fields": {
+			"name": "공포",
+			"genreId": 27
+		}
+	},
+	{
+		"pk": 12,
+		"model": "movies.genre",
+		"fields": {
+			"name": "음악",
+			"genreId": 10402
+		}
+	},
+	{
+		"pk": 13,
+		"model": "movies.genre",
+		"fields": {
+			"name": "미스터리",
+			"genreId": 9648
+		}
+	},
+	{
+		"pk": 14,
+		"model": "movies.genre",
+		"fields": {
+			"name": "로맨스",
+			"genreId": 10749
+		}
+	},
+	{
+		"pk": 15,
+		"model": "movies.genre",
+		"fields": {
+			"name": "SF",
+			"genreId": 878
+		}
+	},
+	{
+		"pk": 16,
+		"model": "movies.genre",
+		"fields": {
+			"name": "TV 영화",
+			"genreId": 10770
+		}
+	},
+	{
+		"pk": 17,
+		"model": "movies.genre",
+		"fields": {
+			"name": "스릴러",
+			"genreId": 53
+		}
+	},
+	{
+		"pk": 18,
+		"model": "movies.genre",
+		"fields": {
+			"name": "전쟁",
+			"genreId": 10752
+		}
+	},
+	{
+		"pk": 19,
+		"model": "movies.genre",
+		"fields": {
+			"name": "서부",
+			"genreId": 37
+		}
+	}
+]
